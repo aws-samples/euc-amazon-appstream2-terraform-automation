@@ -4,7 +4,7 @@ data "aws_region" "current" {
 data "aws_vpc" "app_vpc" {
   filter {
     name   = "tag:Name"
-    values = [local.vpc_name]
+    values = [var.vpc_name]
   }
 }
 
@@ -15,7 +15,7 @@ data "aws_subnets" "app_subnets" {
   }
   filter {
     name   = "tag:Name"
-    values = [local.app_subnet_name]
+    values = [var.app_subnet_name]
   }
 
 }
@@ -27,7 +27,7 @@ data "aws_subnets" "front_end_subnets" {
   }
   filter {
     name   = "tag:Name"
-    values = [local.front_end_subnet_name]
+    values = [var.front_end_subnet_name]
   }
 
 }

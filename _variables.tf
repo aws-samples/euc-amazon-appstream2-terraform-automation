@@ -1,13 +1,13 @@
 variable "app_name" {
   description = "Name of the application"
   type        = string
-  default     = ""
+  default     = "AWSomeApp"
 }
 
 variable "vpc_name" {
   description = "Wildcard identifier of the Customer VPC referenced in the data source to get the VPC ID"
   type        = string
-  default     = ""
+  default     = "AppStreamCustVPC"
 }
 
 variable "front_end_subnet_name" {
@@ -25,7 +25,7 @@ variable "app_subnet_name" {
 variable "image_builder_base_image_name" {
   description = "Name of the base image in the AppStream Image registry that will be used to build the image builder instance"
   type        = string
-  default     = "AppStream-WinServer2019-07-12-2022"
+  #default     = "AppStream-WinServer2012R2-03-29-2023"
 }
 
 variable "image_builder_instance_type" {
@@ -67,7 +67,7 @@ variable "fleet_idle_disconnect_timeout_in_seconds" {
 variable "fleet_image_name" {
   description = "Name of the application image used to provision the fleet instances"
   type        = string
-  default     = "Amazon-AppStream2-Sample-Image-02-04-2019"
+  #default     = "Amazon-AppStream2-Sample-Image-03-11-2023"
 }
 
 variable "fleet_instance_type" {
