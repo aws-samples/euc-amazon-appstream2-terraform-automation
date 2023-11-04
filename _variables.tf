@@ -10,12 +10,6 @@ variable "vpc_name" {
   default     = "AppStreamCustVPC"
 }
 
-variable "front_end_subnet_name" {
-  description = "Wildcard identifier of the Front end subnet referenced in the data source to get the subnet ID. All the streaming traffic will flow through the front end subnet and hence the VPC endpoint will be provisioned in this subnet"
-  type        = string
-  default     = "*FrontEnd*"
-}
-
 variable "app_subnet_name" {
   description = "Wildcard identifier of the application subnet referenced in the data source to get the subnet ID. ENIs for Image builder instances will be created in this subnet in order to provide connectivity to other application resources"
   type        = string
@@ -67,7 +61,7 @@ variable "fleet_idle_disconnect_timeout_in_seconds" {
 variable "fleet_image_name" {
   description = "Name of the application image used to provision the fleet instances"
   type        = string
-  #default     = "Amazon-AppStream2-Sample-Image-03-11-2023"
+  default     = "Amazon-AppStream2-Sample-Image-03-11-2023"
 }
 
 variable "fleet_instance_type" {

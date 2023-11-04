@@ -5,11 +5,6 @@ resource "aws_appstream_stack" "app_stack" {
   # feedback_url = "http://your-domain/feedback"
   # redirect_url = "http://your-domain/redirect"
 
-  access_endpoints {
-    endpoint_type = "STREAMING"
-    vpce_id       = var.vpce_id
-  }
-
   storage_connectors {
     connector_type = "HOMEFOLDERS"
   }

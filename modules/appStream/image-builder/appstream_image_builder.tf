@@ -32,11 +32,6 @@ resource "aws_appstream_image_builder" "app_image_builder" {
   image_name                     = var.image_name
   instance_type                  = var.instance_type
 
-  access_endpoint {
-    endpoint_type = "STREAMING"
-    vpce_id       = var.vpce_id
-  }
-
   vpc_config {
     subnet_ids         = [var.subnet_id]
     security_group_ids = [aws_security_group.appstream_image_builder.id]

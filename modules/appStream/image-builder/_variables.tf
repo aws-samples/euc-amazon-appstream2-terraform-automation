@@ -20,11 +20,6 @@ variable "instance_type" {
   default     = "stream.standard.medium"
 }
 
-variable "vpce_id" {
-  description = "ID of the VPC Endpoint through which traffic will flow to the image builder"
-  type        = string
-}
-
 variable "security_group_cidrs" {
   description = "The CIDRs to which traffic can be routed"
   type        = list(string)
