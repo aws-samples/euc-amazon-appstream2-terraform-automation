@@ -56,7 +56,7 @@ At a high-level, the steps to orchestrate the end-to-end deployment of the AppSt
 5. Re-provision the Amazon AppStream 2.0 fleet instances using the IaC pipeline with the newly created image to produce a fully functional stack
 ### Deployment Using IaC Pipeline
 
-As mentioned in the preceeding section (and in more detail in the blog), as part of the end-to-end orchestration of an AppStream workload, you would first need to provision the baseline AppStream 2.0 infrastructure, i.e. Step #2 in the blog. Later you would re-provision the AppStream fleet instances with the newly created image, i.e. Step #4 in the blog. This terraform module can be utilized for both these steps. Perform the following steps,
+As mentioned in the preceeding section (and in more detail in the blog), as part of the end-to-end orchestration of an AppStream workload, you would first need to provision the baseline AppStream 2.0 infrastructure, i.e. Step #2 in the blog. Later you would re-provision the AppStream fleet instances with the newly created image, i.e. Step #4 in the blog. The accompanying terraform module can be utilized to accomplish the above steps by configuring the terraform module 
 
 1. Link this repository as the source code repository of your IaC pipeline
 2. Update the following variables in `_variables.tf` file
