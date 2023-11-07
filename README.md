@@ -18,10 +18,10 @@ A stack consists of an associated fleet, user access policies, and storage confi
 All of the AppStream related components would be deployed within an AWS Managed VPC which is transparent to the customer. The AppStream image builder and fleet instances integrate with other resources in the customer VPC via ENIs that are provisioned along with the corresponding AppStream components.
 
 ### VPC Endpoint
-Streaming traffic to and from AppStream can be kept private instead of using the public internet. This can be achieved by provisioning a VPC Endpoint in the Customer VPC through which the AppStream streaming traffic would flow. A VPC endpoint module is included in this repo. However, it is not implemented in this solution for the sake of simplicity.
+By default, streaming traffic to and from AppStream resources uses the public internet. However, customers have option to route the traffic through private internet. This can be achieved by provisioning a VPC Endpoint in the Customer VPC through which the AppStream streaming traffic would flow. A VPC endpoint module is included in this repo. However, it is not implemented in this solution for the sake of simplicity.
 
 ## Network Connectivity
-- **Streaming connectivity** - Since all streaming traffic would flow through the VPC endpoint, the endpoint should be created in the front end subnet where the user traffic will commence. For this reason, the security groups of all the AppStream resources would restrict traffic to only the CIDR range of the front end subnet.
+- **Streaming connectivity** - Should the private internet connectivity chosen to the route the streaming traffic, a VPC endpoint resource should be created in the front end subnet where the user traffic will originate. For this reason, the security groups of all the AppStream resources would restrict traffic to only the CIDR range of the front end subnet.
 
 - **Application resource connectivity** - Connectivity between the AppStream resources and the resources in the application VPC is established through ENIs. As part of the provisioning, AppStream creates an ENI for each of the AppStream instances (Image builder & Fleet) in the application subnet. 
 
