@@ -17,12 +17,6 @@ A stack consists of an associated fleet, user access policies, and storage confi
 ### AWS Managed VPC
 All of the  AppStream 2.0 related components would be deployed within an AWS Managed VPC which is transparent to the customer. The  AppStream 2.0 image builder and fleet instances integrate with other resources in the customer VPC via ENIs that are provisioned along with the corresponding  AppStream 2.0 components.
 
-### VPC Endpoint
-By default, streaming traffic to and from   AppStream 2.0 resources uses the public internet. However, customers have option to route the traffic through private internet. This can be achieved by provisioning a VPC Endpoint in the Customer VPC through which the  AppStream 2.0 streaming traffic would flow. A VPC endpoint module is included in this repo. However, it is not implemented in this solution for the sake of simplicity.
-
-## Network Connectivity
-- **Streaming connectivity** - Should the private internet connectivity chosen to the route the streaming traffic, a VPC endpoint resource should be created in the front end subnet where the user traffic will originate. For this reason, the security groups of all the  AppStream 2.0 resources would restrict traffic to only the CIDR range of the front end subnet.
-
 - **Application resource connectivity** - Connectivity between the  AppStream 2.0 resources and the resources in the application VPC is established through ENIs. As part of the provisioning,  AppStream 2.0 creates an ENI for each of the  AppStream 2.0 instances (Image builder & Fleet) in the application subnet. 
 
 ## Solution Architecture
@@ -120,7 +114,6 @@ $ terraform apply
 | <a name="module__fleet"></a> [\_fleet](#module\_\_fleet) | ./modules//fleet | n/a |
 | <a name="module__image_builder"></a> [\_image\_builder](#module\_\_image\_builder) | ./modules//image-builder | n/a |
 | <a name="module__stack"></a> [\_stack](#module\_\_stack) | ./modules//stack | n/a |
-| <a name="module__vpc_endpoint"></a> [\_vpc\_endpoint](#module\_\_vpc\_endpoint) | ./modules/vpc-endpoint | n/a |
 
 ## Resources
 
