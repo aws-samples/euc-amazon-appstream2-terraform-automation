@@ -22,7 +22,7 @@ All of the  AppStream 2.0 related components would be deployed within an AWS Man
 ## Solution Architecture
 Below is the architecture diagram describing the different Amazon  AppStream 2.0 components and their deployment.
 
-![High-level Architecture](./assets/ArchitectureDiagram.png "High-level Architecture")
+![High-level Architecture](./assets/AppStream-Architecture.png "High-level Architecture")
 
 The  AppStream 2.0 components will reside within an Amazon managed VPC while application specific resources will reside in the customer VPC. To interact with the application resources, as part of the  AppStream 2.0 resource provisioning, the customer VPC needs to be provided as one of the parameters. 
 
