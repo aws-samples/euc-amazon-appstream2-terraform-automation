@@ -9,7 +9,7 @@ Amazon  AppStream 2.0 is a fully managed, secure application streaming service t
 An image builder is a virtual machine that is used to create an image. After an image builder instance is created, the application to be streamed should be installed, configured and tested on the image builder, and then use it to create an image. 
 
 ### Fleet
-A fleet consists of fleet instances (also known as streaming instances) that run the application. Note that each end user requires one fleet instance.
+A fleet consists of fleet instances (also known as streaming instances) that run the application. 
 
 ### Stack
 A stack consists of an associated fleet, user access policies, and storage configurations. A stack should be setup to start streaming applications to users.
