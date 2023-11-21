@@ -16,8 +16,9 @@ A stack consists of an associated fleet, user access policies, and storage confi
 
 ### AWS Managed VPC
 All of the  AppStream 2.0 related components would be deployed within an AWS Managed VPC which is transparent to the customer. The  AppStream 2.0 image builder and fleet instances integrate with other resources in the customer VPC via ENIs that are provisioned along with the corresponding  AppStream 2.0 components.
+## Application resource connectivity
+Connectivity between the  AppStream 2.0 resources and the resources in the application VPC is established through ENIs. As part of the provisioning,  AppStream 2.0 creates an ENI for each of the  AppStream 2.0 instances (Image builder & Fleet) in the application subnet. 
 
-- **Application resource connectivity** - Connectivity between the  AppStream 2.0 resources and the resources in the application VPC is established through ENIs. As part of the provisioning,  AppStream 2.0 creates an ENI for each of the  AppStream 2.0 instances (Image builder & Fleet) in the application subnet. 
 
 ## Solution Architecture
 Below is the architecture diagram describing the different Amazon  AppStream 2.0 components and their deployment.
@@ -142,11 +143,10 @@ $ terraform apply
 | <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Wildcard identifier of the Customer VPC referenced in the data source to get the VPC ID | `string` | `""` | no |
 
 ## Outputs
-
 | Name | Description |
 |------|-------------|
-| <a name="output_appstream_fleet_name"></a> [appstream\_fleet\_name](#output\appstream\_fleet\_name) | The name of the  AppStream 2.0 fleet |
-| <a name="output_appstream_stack_name"></a> [appstream\_stack\_name](#output\appstream\_stack\_name) | The name of the  AppStream 2.0 stack |
+| <a name="output_appstream_fleet_name"></a> [appstream\_fleet\_name](#output\_appstream\_fleet\_name) | The name of the AppStream 2.0 fleet |
+| <a name="output_appstream_stack_name"></a> [appstream\_stack\_name](#output\_appstream\_stack\_name) | The name of the AppStream 2.0 stack |
 <!-- END_TF_DOCS -->
 
 ## Cleanup
