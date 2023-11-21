@@ -112,35 +112,26 @@ $ terraform apply
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module__fleet"></a> [appstream_fleet](#module\appstream\_fleet) | ./modules/appstream/fleet | n/a |
-| <a name="module__image_builder"></a> [appstream_image_builder](#module\appstream\image-builder) | ./modules/appstream/image-builder | n/a |
-| <a name="module__stack"></a> [appstream_stack](#module\_\_stack) | ./modules//stack | n/a |
+| <a name="module_appstream_fleet"></a> [appstream_fleet](#module\appstream\fleet) | ./modules/appstream/fleet | n/a |
+| <a name="module_appstream_image_builder"></a> [appstream_image_builder](#module\appstream\image-builder) | ./modules/appstream/image-builder | n/a |
+| <a name="module_appstream_stack"></a> [appstream_stack](#module\appstream\stack) | ./modules/appstream/stack | n/a |
 
-## Resources
-
-| Name | Type |
-|------|------|
-| [aws__fleet_stack_association.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/_fleet_stack_association) | resource |
-| [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
-| [aws_subnets.app_subnets](https://registry.terraform.io/providers/hashicorp/hashicorp/aws/latest/docs/data-sources/subnets) | data source |
-| [aws_vpc.app_vpc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_app_name"></a> [app\_name](#input\_app\_name) | Name of the application | `string` | `"AWSomeApp"` | no |
-| <a name="input_app_subnet_name"></a> [app\_subnet\_name](#input\_app\_subnet\_name) | Wildcard identifier of the application subnet referenecd in the data source to get the subnet ID. ENIs for Image builder and fleet instances will be created in this subnet in order to provide connectivity to other application resources | `string` | `"*App*"` | no |
+| <a name="input_app_subnet_name"></a> [app\_subnet\_name](#input\_app\_subnet\_name) | Name of the application subnet. Referenced in the data source to get the subnet ID. ENIs for image builder instances will be created in this subnet in order to provide connectivity to other application resources | `string` | `""` | yes |
 | <a name="input_desired_fleet_instances_count"></a> [desired\_fleet\_instances\_count](#input\_desired\_fleet\_instances\_count) | Desired number of instances in the  AppStream 2.0 fleet at startup | `number` | `1` | no |
 | <a name="input_fleet_idle_disconnect_timeout_in_seconds"></a> [fleet\_idle\_disconnect\_timeout\_in\_seconds](#input\_fleet\_idle\_disconnect\_timeout\_in\_seconds) | Amount of time that users can be idle before they are disconnected from their streaming session | `number` | `600` | no |
 | <a name="input_fleet_image_name"></a> [fleet\_image\_name](#input\_fleet\_image\_name) | Name of the application image used to provision the fleet instances | `string` | "" | yes |
 | <a name="input_fleet_instance_type"></a> [fleet\_instance\_type](#input\_fleet\_instance\_type) | Type and size of the   AppStream 2.0 fleet instance | `string` | `"stream.standard.medium"` | no |
-| <a name="input_fleet_max_user_duration_in_seconds"></a> [fleet\_max\_user\_duration\_in\_seconds](#input\_fleet\_max\_user\_duration\_in\_seconds) | Maximum amount of time that a streaming session can remain active, in seconds. Maximum session duration is 120 hours | `number` | `432000 seconds` | no |
+| <a name="input_fleet_max_user_duration_in_seconds"></a> [fleet\_max\_user\_duration\_in\_seconds](#input\_fleet\_max\_user\_duration\_in\_seconds) | Maximum amount of time that a streaming session can remain active, in seconds. Maximum session duration is 120 hours | `number` | `28800` | no |
 | <a name="input_fleet_type"></a> [fleet\_type](#input\_fleet\_type) | Type of the fleet instance that determines the start-up time and cost of the instance. Applicable types are 'ALWAYS\_ON' and 'ON\_DEMAND' | `string` | `"ON_DEMAND"` | no |
-| <a name="input_image_builder_base_image_name"></a> [image\_builder\_base\_image\_name](#input\_image\_builder\_base\_image\_name) | Name of the base image in the  AppStream 2.0 Image registry that will be used to build the image builder instance | `string` | `""` | no |
+| <a name="input_image_builder_base_image_name"></a> [image\_builder\_base\_image\_name](#input\_image\_builder\_base\_image\_name) | Name of the base image in the  AppStream 2.0 Image registry that will be used to build the image builder instance | `string` | `""` | yes |
 | <a name="input_image_builder_instance_type"></a> [image\_builder\_instance\_type](#input\_image\_builder\_instance\_type) | Type and size of the image builder instance | `string` | `"stream.standard.medium"` | no |
-| <a name="input_security_group_cidrs"></a> [security\_group\_cidrs](#input\_security\_group\_cidrs) | The CIDRs from which ingress traffic will be allowed in the security group | `list(string)` | <pre>[<br>  "0.0.0.0/0"<br>]</pre> | no |
-| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Wildcard identifier of the Customer VPC referenced in the data source to get the VPC ID | `string` | `""` | no |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the Customer VPC. Referenced in the data source to get the VPC ID | `string` | `""` | yes |
 
 ## Outputs
 | Name | Description |

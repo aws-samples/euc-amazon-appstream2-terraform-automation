@@ -1,18 +1,18 @@
 resource "aws_security_group" "appstream_image_builder" {
   name        = "${var.name_prefix}appstream_image_builder_sg"
-  description = "Image Builder Security Group"
+  description = "Security group of the image builder"
   vpc_id      = var.vpc_id
 
   ingress {
-    description      = "Allow Https"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks      = var.security_group_cidrs
+    description      = "Custom ingress rule"
+    from_port        = var.security_group_ingress_port
+    to_port          = var.security_group_ingress_port
+    protocol         = var.security_group_ingress_protocol
+    cidr_blocks      = var.security_group_ingress_cidrs
   }
 
   egress {
-    description      = "Allow all outbound traffic"
+    description      = "All access egress rule"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
@@ -26,8 +26,8 @@ resource "aws_security_group" "appstream_image_builder" {
 
 resource "aws_appstream_image_builder" "app_image_builder" {
   name                           = "${var.name_prefix}appstream_image_builder"
-  description                    = "Image Builder for Application client"
-  display_name                   = "Image Builder for Application client"
+  description                    = "Application client image builder"
+  display_name                   = "Application client image builder"
   enable_default_internet_access = false
   image_name                     = var.image_name
   instance_type                  = var.instance_type

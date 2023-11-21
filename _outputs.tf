@@ -4,11 +4,11 @@
 # }
 
 output "appstream_fleet_name" {
-  description = "The name of the AppStream fleet"
+  description = "The name of the AppStream 2.0 fleet"
   value       = module.appstream_fleet.name
 }
 
 output "appstream_stack_name" {
-  description = "The name of the AppStream stack"
+  description = "The name of the AppStream 2.0 stack"
   value       = module.appstream_stack.name
 }

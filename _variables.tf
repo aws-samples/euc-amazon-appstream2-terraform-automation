@@ -5,21 +5,19 @@ variable "app_name" {
 }
 
 variable "vpc_name" {
-  description = "Wildcard identifier of the Customer VPC referenced in the data source to get the VPC ID"
+  description = "Name of the Customer VPC. Referenced in the data source to get the VPC ID"
   type        = string
-  default     = "AppStreamCustVPC"
 }
 
 variable "app_subnet_name" {
-  description = "Wildcard identifier of the application subnet referenced in the data source to get the subnet ID. ENIs for Image builder instances will be created in this subnet in order to provide connectivity to other application resources"
+  description = "Name of the application subnet. Referenced in the data source to get the subnet ID. ENIs for image builder instances will be created in this subnet in order to provide connectivity to other application resources"
   type        = string
-  default     = "*App*"
 }
 
 variable "image_builder_base_image_name" {
-  description = "Name of the base image in the AppStream Image registry that will be used to build the image builder instance"
+  description = "Name of the base image in the AppStream 2.0 Image registry that will be used to build the image builder instance"
   type        = string
-  #default     = "AppStream-WinServer2012R2-03-29-2023"
+  #default     = "AppStream-WinServer2019-11-13-2023"
 }
 
 variable "image_builder_instance_type" {
@@ -35,15 +33,15 @@ variable "fleet_type" {
 }
 
 variable "desired_fleet_instances_count" {
-  description = "Desired number of instances in the AppStream fleet at startup"
+  description = "Desired number of instances in the AppStream 2.0 fleet at startup"
   type        = number
   default     = 1
 }
 
 variable "fleet_max_user_duration_in_seconds" {
-  description = "Maximum amount of time that a streaming session can remain active, in seconds. Maximum session duration is 96 hours"
+  description = "Maximum amount of time that a streaming session can remain active, in seconds. Maximum session duration is 120 hours"
   type        = number
-  default     = 7200
+  default     = 28800
 }
 
 variable "fleet_disconnect_timeout_in_seconds" {
@@ -65,15 +63,9 @@ variable "fleet_image_name" {
 }
 
 variable "fleet_instance_type" {
-  description = "Type and size of the AppStream fleet instance"
+  description = "Type and size of the AppStream 2.0 fleet instance"
   type        = string
   default     = "stream.standard.medium"
-}
-
-variable "security_group_cidrs" {
-  description = "The CIDRs from which ingress traffic will be allowed in the security group"
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
 }
 
 variable "tag_environment_type" {

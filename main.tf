@@ -1,12 +1,12 @@
 module "appstream_image_builder" {
-  source               = "./modules/appStream/image-builder"
-  vpc_id               = data.aws_vpc.app_vpc.id
-  subnet_id            = data.aws_subnets.app_subnets.ids[0]
-  image_name           = var.image_builder_base_image_name
-  instance_type        = var.image_builder_instance_type
-  security_group_cidrs = [for s in data.aws_subnet.routable_subnets : s.cidr_block]
-  name_prefix          = local.name_prefix
-  default_tags         = local.default_tags
+  source                       = "./modules/appStream/image-builder"
+  vpc_id                       = data.aws_vpc.app_vpc.id
+  subnet_id                    = data.aws_subnets.app_subnets.ids[0]
+  image_name                   = var.image_builder_base_image_name
+  instance_type                = var.image_builder_instance_type
+  security_group_ingress_cidrs = [for s in data.aws_subnet.routable_subnets : s.cidr_block]
+  name_prefix                  = local.name_prefix
+  default_tags                 = local.default_tags
 }
 
 module "appstream_fleet" {
@@ -20,7 +20,7 @@ module "appstream_fleet" {
   idle_disconnect_timeout_in_seconds = var.fleet_idle_disconnect_timeout_in_seconds
   image_name                         = var.fleet_image_name
   instance_type                      = var.fleet_instance_type
-  security_group_cidrs               = [for s in data.aws_subnet.routable_subnets : s.cidr_block]
+  security_group_ingress_cidrs       = [for s in data.aws_subnet.routable_subnets : s.cidr_block]
   name_prefix                        = local.name_prefix
   default_tags                       = local.default_tags
 }
