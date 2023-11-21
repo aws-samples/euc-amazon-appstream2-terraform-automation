@@ -111,9 +111,9 @@ $ terraform apply
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module__fleet"></a> [\_fleet](#module\_\_fleet) | ./modules//fleet | n/a |
-| <a name="module__image_builder"></a> [\_image\_builder](#module\_\_image\_builder) | ./modules//image-builder | n/a |
-| <a name="module__stack"></a> [\_stack](#module\_\_stack) | ./modules//stack | n/a |
+| <a name="module__fleet"></a> [appstream_fleet](#module\appstream\_fleet) | ./modules/appstream/fleet | n/a |
+| <a name="module__image_builder"></a> [appstream_image_builder](#module\appstream\image-builder) | ./modules/appstream/image-builder | n/a |
+| <a name="module__stack"></a> [appstream_stack](#module\_\_stack) | ./modules//stack | n/a |
 
 ## Resources
 
@@ -145,8 +145,8 @@ $ terraform apply
 
 | Name | Description |
 |------|-------------|
-| <a name="output__fleet_name"></a> [\_fleet\_name](#output\_\_fleet\_name) | The name of the  AppStream 2.0 fleet |
-| <a name="output__stack_name"></a> [\_stack\_name](#output\_\_stack\_name) | The name of the  AppStream 2.0 stack |
+| <a name="output_appstream_fleet_name"></a> [appstream\_fleet\_name](#output\appstream\_fleet\_name) | The name of the  AppStream 2.0 fleet |
+| <a name="output_appstream_stack_name"></a> [appstream\_stack\_name](#output\appstream\_stack\_name) | The name of the  AppStream 2.0 stack |
 <!-- END_TF_DOCS -->
 
 ## Cleanup
