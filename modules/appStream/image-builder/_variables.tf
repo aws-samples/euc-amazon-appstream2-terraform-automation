@@ -20,14 +20,20 @@ variable "instance_type" {
   default     = "stream.standard.medium"
 }
 
-variable "vpce_id" {
-  description = "ID of the VPC Endpoint through which traffic will flow to the image builder"
-  type        = string
+variable "security_group_ingress_cidrs" {
+  description = "The CIDRs from which ingress traffic will be allowed in the security group"
+  type        = list(string)
 }
 
-variable "security_group_cidrs" {
-  description = "The CIDRs to which traffic can be routed"
-  type        = list(string)
+variable "security_group_ingress_port" {
+  description = "The port on which ingress traffic will be allowed in the security group"
+  type        = string
+  default     = "22"
+}
+variable "security_group_ingress_protocol" {
+  description = "The protocol for which ingress traffic will be allowed in the security group"
+  type        = string
+  default     = "tcp"
 }
 
 variable "name_prefix" {

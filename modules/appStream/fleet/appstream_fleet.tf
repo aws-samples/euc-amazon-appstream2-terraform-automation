@@ -1,18 +1,18 @@
 resource "aws_security_group" "appstream_fleet" {
   name        = "${var.name_prefix}appstream_fleet_sg"
-  description = "AppStream Fleet Security Group"
+  description = "AppStream 2.0 Fleet Security Group"
   vpc_id      = var.vpc_id
 
   ingress {
-    description      = "Allow Https"
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks      = var.security_group_cidrs
+    description      = "Custom ingress rule"
+    from_port        = var.security_group_ingress_port
+    to_port          = var.security_group_ingress_port
+    protocol         = var.security_group_ingress_protocol
+    cidr_blocks      = var.security_group_ingress_cidrs
   }
 
   egress {
-    description      = "Allow all outbound traffic"
+    description      = "All access egress rule"
     from_port        = 0
     to_port          = 0
     protocol         = "-1"
@@ -32,8 +32,8 @@ resource "aws_appstream_fleet" "app_fleet" {
     desired_instances = var.desired_fleet_instances_count
   }
 
-  description                        = "AppStream fleet for application client"
-  display_name                       = "AppStream fleet for application client"
+  description                        = "AppStream 2.0 fleet for application client"
+  display_name                       = "AppStream 2.0 fleet for application client"
   enable_default_internet_access     = false
   fleet_type                         = var.fleet_type
   image_name                         = var.image_name
