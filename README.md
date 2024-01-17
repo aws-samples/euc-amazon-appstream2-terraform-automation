@@ -1,6 +1,6 @@
 # Terraform for Amazon  AppStream 2.0 Deployment Pipeline
 
-This repository contains the Terraform module that is provided as part of the AWS blog post [Automation of infrastructure and application deployment for Amazon  AppStream 2.0 with Terraform](). Please refer the blog article for prescriptive guidance on how to build a fully automated pipeline to provision Amazon  AppStream 2.0 infrastructure and deploy application components on the Amazon  AppStream 2.0 Image builder. 
+This repository contains the Terraform module that is provided as part of the AWS blog post [Automation of infrastructure and application deployment for Amazon  AppStream 2.0 with Terraform](https://aws.amazon.com/blogs/desktop-and-application-streaming/automation-of-infrastructure-and-application-deployment-for-amazon-appstream-2-0-with-terraform/). Please refer the blog article for prescriptive guidance on how to build a fully automated pipeline to provision Amazon  AppStream 2.0 infrastructure and deploy application components on the Amazon  AppStream 2.0 Image builder. 
 
 ## Amazon  AppStream 2.0 Resources
 Amazon  AppStream 2.0 is a fully managed, secure application streaming service that allows streaming of desktop applications from AWS to a web browser.  AppStream 2.0 manages the AWS resources required to host and run applications, scales automatically, and provides access to users on demand. Below are some of the important components that make up the  AppStream 2.0 ecosystem.
